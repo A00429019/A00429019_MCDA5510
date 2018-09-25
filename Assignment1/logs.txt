@@ -1,0 +1,17 @@
+Sep 24, 2018 8:31:44 PM SimpleCsvParser CSVParsermethod
+INFO: 1
+
+Sep 24, 2018 8:31:44 PM SimpleCsvParser CSVParsermethod
+INFO: 6
+
+Sep 24, 2018 8:31:51 PM SimpleCsvParser CSVParsermethod
+INFO: null
+
+Sep 24, 2018 8:31:55 PM DirWalker main
+INFO: 
+Records: 201040
+Skipped: 81817
+
+Sep 24, 2018 8:31:55 PM DirWalker main
+INFO: 
+Total execution time: 13261 ms
