@@ -1,0 +1,33 @@
+Oct 15, 2018 9:18:27 PM MySQLAccess updateTrxns
+INFO: 
+The record was not updated. Try using Create.
+
+Oct 15, 2018 9:19:25 PM MySQLAccess insertTrxns
+INFO: 
+Please enter the correct format for Exp Date.
+
+Oct 15, 2018 9:20:03 PM MySQLAccess insertTrxns
+INFO: 
+Special characters are not allowed in the varchars
+
+Oct 15, 2018 9:20:32 PM MySQLAccess updateTrxns
+INFO: 
+You need to update at least one value.
+
+Oct 15, 2018 9:20:57 PM EnterValues removeValues
+INFO: 
+Please enter the correct ID to delete.
+
+Oct 15, 2018 9:20:57 PM EnterValues removeValues
+INFO: null
+
+Oct 15, 2018 9:20:57 PM MySQLAccess removeTrxns
+INFO: null
+
+Oct 15, 2018 9:21:30 PM EnterValues UpdateWhere
+INFO: For input string: "uib8"
+
+Oct 15, 2018 9:21:30 PM MySQLAccess updateTrxns
+INFO: 
+The record was not updated. Try using Create.
+
