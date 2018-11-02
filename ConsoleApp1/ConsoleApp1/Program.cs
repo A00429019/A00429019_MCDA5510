@@ -42,7 +42,7 @@ namespace MSCDA5510
             String COMMA = ",";
 
             //TODO replace with your local location
-            String outputFileName = @"..\..\customers.csv";
+            String outputFileName = @"../../customers.csv";
 
             if (File.Exists(outputFileName))
             {
@@ -54,6 +54,10 @@ namespace MSCDA5510
             fileStream.Write("First Name");
             fileStream.Write(COMMA);
             fileStream.Write("Last Name");
+            fileStream.Write(COMMA);
+            fileStream.Write("Street");
+            fileStream.Write(COMMA);
+            fileStream.Write("Street Name");
             fileStream.WriteLine();
 
             for (int i = 0; i < 20; i++)
@@ -61,6 +65,10 @@ namespace MSCDA5510
                 fileStream.Write(GenerateFirstName());
                 fileStream.Write(COMMA);
                 fileStream.Write(GenerateLastName());
+                fileStream.Write(COMMA);
+                fileStream.Write(GenerateStreet());
+                fileStream.Write(COMMA);
+                fileStream.Write(GenerateStreetName());
                 fileStream.WriteLine();
             }
             fileStream.Close();
@@ -68,13 +76,25 @@ namespace MSCDA5510
 
         public string GenerateFirstName()
         {
-            String firstNames = @"..\..\firstNames.txt";
+            String firstNames = @"../../firstNames.txt";
             return ReturnRandomLine(firstNames);
         }
 
         public string GenerateLastName()
         {
-            String lastNames = @"..\..\lastNames.txt";
+            String lastNames = @"../../lastNames.txt";
+            return ReturnRandomLine(lastNames);
+        }
+
+        public string GenerateStreet()
+        {
+            String lastNames = @"../../Street.txt";
+            return ReturnRandomLine(lastNames);
+        }
+
+        public string GenerateStreetName()
+        {
+            String lastNames = @"../../StreetName.txt";
             return ReturnRandomLine(lastNames);
         }
 
