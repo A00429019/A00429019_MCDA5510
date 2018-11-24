@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Assignment3ServiceService WSDL service -->
+
+  <service name="Assignment3Service" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.mcda5510.com"/>
+      <parameter name="wsdlServiceElement" value="Assignment3ServiceService"/>
+      <parameter name="schemaQualified" value="http://service.mcda5510.com"/>
+      <parameter name="wsdlServicePort" value="Assignment3Service"/>
+      <parameter name="className" value="com.mcda5510.service.Assignment3Service"/>
+      <parameter name="wsdlPortType" value="Assignment3Service"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.mcda5510.com" xmlns:retNS="http://service.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="insertTrxns" qname="operNS:insertTrxns" returnQName="retNS:insertTrxnsReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ID" type="tns:int"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:NameOnCard" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:CardNumber" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:UnitPrice" type="tns:double"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Qty" type="tns:int"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:TotalPrice" type="tns:double"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ExpDate" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.mcda5510.com" xmlns:retNS="http://service.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="selectTrxns" qname="operNS:selectTrxns" returnQName="retNS:selectTrxnsReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service.mcda5510.com" xmlns:retNS="http://service.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="removeTrxns" qname="operNS:removeTrxns" returnQName="retNS:removeTrxnsReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.mcda5510.com" xmlns:retNS="http://service.mcda5510.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateTrxns" qname="operNS:updateTrxns" returnQName="retNS:updateTrxnsReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ID" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:NameOnCard" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:CardNumber" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:UnitPrice" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Qty" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:TotalPrice" type="tns:string"/>
+        <parameter xmlns:pns="http://service.mcda5510.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ExpDate" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="updateTrxns insertTrxns selectTrxns removeTrxns"/>
+
+  </service>
+</deployment>

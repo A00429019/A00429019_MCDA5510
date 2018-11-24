@@ -1,0 +1,84 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="/Users/smucda/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Assignment3WS/WEB-INF/attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="Assignment3Service" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="insertTrxns" qname="ns1:insertTrxns" returnQName="ns1:insertTrxnsReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://service.mcda5510.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:ID" type="xsd:int"/>
+   <ns2:parameter qname="ns1:NameOnCard" type="xsd:string"/>
+   <ns2:parameter qname="ns1:CardNumber" type="xsd:string"/>
+   <ns2:parameter qname="ns1:UnitPrice" type="xsd:double"/>
+   <ns2:parameter qname="ns1:Qty" type="xsd:int"/>
+   <ns2:parameter qname="ns1:TotalPrice" type="xsd:double"/>
+   <ns2:parameter qname="ns1:ExpDate" type="xsd:string"/>
+  </ns2:operation>
+  <ns1:operation name="selectTrxns" qname="ns2:selectTrxns" returnQName="ns2:selectTrxnsReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://service.mcda5510.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="removeTrxns" qname="ns3:removeTrxns" returnQName="ns3:removeTrxnsReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://service.mcda5510.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:ID" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateTrxns" qname="ns4:updateTrxns" returnQName="ns4:updateTrxnsReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://service.mcda5510.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:ID" type="xsd:string"/>
+   <ns1:parameter qname="ns4:NameOnCard" type="xsd:string"/>
+   <ns1:parameter qname="ns4:CardNumber" type="xsd:string"/>
+   <ns1:parameter qname="ns4:UnitPrice" type="xsd:string"/>
+   <ns1:parameter qname="ns4:Qty" type="xsd:string"/>
+   <ns1:parameter qname="ns4:TotalPrice" type="xsd:string"/>
+   <ns1:parameter qname="ns4:ExpDate" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="updateTrxns insertTrxns selectTrxns removeTrxns"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Assignment3Service"/>
+  <ns1:parameter name="className" value="com.mcda5510.service.Assignment3Service"/>
+  <ns1:parameter name="wsdlServicePort" value="Assignment3Service"/>
+  <ns1:parameter name="schemaQualified" value="http://service.mcda5510.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service.mcda5510.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="Assignment3ServiceService"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

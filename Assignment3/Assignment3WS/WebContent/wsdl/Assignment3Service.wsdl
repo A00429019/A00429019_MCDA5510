@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.mcda5510.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.mcda5510.com" xmlns:intf="http://service.mcda5510.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.mcda5510.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertTrxns">
+    <complexType>
+     <sequence>
+      <element name="ID" type="xsd:int"/>
+      <element name="NameOnCard" type="xsd:string"/>
+      <element name="CardNumber" type="xsd:string"/>
+      <element name="UnitPrice" type="xsd:double"/>
+      <element name="Qty" type="xsd:int"/>
+      <element name="TotalPrice" type="xsd:double"/>
+      <element name="ExpDate" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertTrxnsResponse">
+    <complexType>
+     <sequence>
+      <element name="insertTrxnsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="selectTrxns">
+    <complexType/>
+   </element>
+   <element name="selectTrxnsResponse">
+    <complexType>
+     <sequence>
+      <element name="selectTrxnsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeTrxns">
+    <complexType>
+     <sequence>
+      <element name="ID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeTrxnsResponse">
+    <complexType>
+     <sequence>
+      <element name="removeTrxnsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateTrxns">
+    <complexType>
+     <sequence>
+      <element name="ID" type="xsd:string"/>
+      <element name="NameOnCard" type="xsd:string"/>
+      <element name="CardNumber" type="xsd:string"/>
+      <element name="UnitPrice" type="xsd:string"/>
+      <element name="Qty" type="xsd:string"/>
+      <element name="TotalPrice" type="xsd:string"/>
+      <element name="ExpDate" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateTrxnsResponse">
+    <complexType>
+     <sequence>
+      <element name="updateTrxnsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="selectTrxnsResponse">
+
+      <wsdl:part element="impl:selectTrxnsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeTrxnsResponse">
+
+      <wsdl:part element="impl:removeTrxnsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="selectTrxnsRequest">
+
+      <wsdl:part element="impl:selectTrxns" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeTrxnsRequest">
+
+      <wsdl:part element="impl:removeTrxns" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateTrxnsResponse">
+
+      <wsdl:part element="impl:updateTrxnsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateTrxnsRequest">
+
+      <wsdl:part element="impl:updateTrxns" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertTrxnsRequest">
+
+      <wsdl:part element="impl:insertTrxns" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertTrxnsResponse">
+
+      <wsdl:part element="impl:insertTrxnsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Assignment3Service">
+
+      <wsdl:operation name="insertTrxns">
+
+         <wsdl:input message="impl:insertTrxnsRequest" name="insertTrxnsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertTrxnsResponse" name="insertTrxnsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectTrxns">
+
+         <wsdl:input message="impl:selectTrxnsRequest" name="selectTrxnsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:selectTrxnsResponse" name="selectTrxnsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeTrxns">
+
+         <wsdl:input message="impl:removeTrxnsRequest" name="removeTrxnsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeTrxnsResponse" name="removeTrxnsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateTrxns">
+
+         <wsdl:input message="impl:updateTrxnsRequest" name="updateTrxnsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateTrxnsResponse" name="updateTrxnsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Assignment3ServiceSoapBinding" type="impl:Assignment3Service">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertTrxns">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertTrxnsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertTrxnsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="selectTrxns">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="selectTrxnsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="selectTrxnsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeTrxns">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeTrxnsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeTrxnsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateTrxns">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateTrxnsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateTrxnsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Assignment3ServiceService">
+
+      <wsdl:port binding="impl:Assignment3ServiceSoapBinding" name="Assignment3Service">
+
+         <wsdlsoap:address location="http://localhost:8080/Assignment3WS/services/Assignment3Service"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
